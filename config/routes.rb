@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Referral resource:
+  # CREATE
+  get "/referrals/new", :controller => "referrals", :action => "new"
+  post "/create_referral", :controller => "referrals", :action => "create"
+
+  # READ
+  get "/referrals", :controller => "referrals", :action => "index"
+  get "/referrals/:id", :controller => "referrals", :action => "show"
+
+  # UPDATE
+  get "/referrals/:id/edit", :controller => "referrals", :action => "edit"
+  post "/update_referral/:id", :controller => "referrals", :action => "update"
+
+  # DELETE
+  get "/delete_referral/:id", :controller => "referrals", :action => "destroy"
+  #------------------------------
+
   # Routes for the School resource:
   # CREATE
   get "/schools/new", :controller => "schools", :action => "new"
