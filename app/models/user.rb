@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :invoices,
+             :foreign_key => "requestor_user_id"
+
   # Indirect associations
 
   # Validations
