@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Invoice resource:
+  # CREATE
+  get "/invoices/new", :controller => "invoices", :action => "new"
+  post "/create_invoice", :controller => "invoices", :action => "create"
+
+  # READ
+  get "/invoices", :controller => "invoices", :action => "index"
+  get "/invoices/:id", :controller => "invoices", :action => "show"
+
+  # UPDATE
+  get "/invoices/:id/edit", :controller => "invoices", :action => "edit"
+  post "/update_invoice/:id", :controller => "invoices", :action => "update"
+
+  # DELETE
+  get "/delete_invoice/:id", :controller => "invoices", :action => "destroy"
+  #------------------------------
+
   # Routes for the Referral resource:
   # CREATE
   get "/referrals/new", :controller => "referrals", :action => "new"

@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>
+    Invoices
+    <a href="/invoices/new" class="btn btn-lg btn-success">New Invoice</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Requestor user</th>
+        <th>Approver user</th>
+        <th>Dollar amount</th>
+        <th>Submitted</th>
+        <th>Submitted on</th>
+        <th>Approved</th>
+        <th>Requestor notes</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.requestor_user_id %></td>
+        <td><%= invoice.approver_user_id %></td>
+        <td><%= invoice.dollar_amount %></td>
+        <td><%= invoice.submitted %></td>
+        <td><%= invoice.submitted_on %></td>
+        <td><%= invoice.approved %></td>
+        <td><%= invoice.requestor_notes %></td>
+        <td>
+          <a href="/invoices/<%= invoice.id %>" class="btn btn-primary">Show</a>
+          <a href="/invoices/<%= invoice.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_invoice/<%= invoice.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

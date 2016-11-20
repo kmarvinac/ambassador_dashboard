@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Invoice #<%= @invoice.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Requestor user</dt>
+      <dd><%= @invoice.requestor_user_id %></dd>
+
+      <dt>Approver user</dt>
+      <dd><%= @invoice.approver_user_id %></dd>
+
+      <dt>Dollar amount</dt>
+      <dd><%= @invoice.dollar_amount %></dd>
+
+      <dt>Submitted</dt>
+      <dd><%= @invoice.submitted %></dd>
+
+      <dt>Submitted on</dt>
+      <dd><%= @invoice.submitted_on %></dd>
+
+      <dt>Approved</dt>
+      <dd><%= @invoice.approved %></dd>
+
+      <dt>Requestor notes</dt>
+      <dd><%= @invoice.requestor_notes %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/invoices" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/invoices/<%= @invoice.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_invoice/<%= @invoice.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

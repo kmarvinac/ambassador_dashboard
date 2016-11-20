@@ -1,0 +1,89 @@
+<!-- Validation failure messages -->
+<% if @invoice.errors.any? %>
+  <% @invoice.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Invoice #<%= @invoice.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_invoice/<%= @invoice.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for requestor_user_id -->
+      <div class="form-group">
+        <label for="requestor_user_id" class="control-label">
+          Requestor user
+        </label>
+
+        <input type="text" id="requestor_user_id" name="requestor_user_id" placeholder="Requestor user" class="form-control" value="<%= @invoice.requestor_user_id %>">
+      </div>
+
+      <!-- Label and input for approver_user_id -->
+      <div class="form-group">
+        <label for="approver_user_id" class="control-label">
+          Approver user
+        </label>
+
+        <input type="text" id="approver_user_id" name="approver_user_id" placeholder="Approver user" class="form-control" value="<%= @invoice.approver_user_id %>">
+      </div>
+
+      <!-- Label and input for dollar_amount -->
+      <div class="form-group">
+        <label for="dollar_amount" class="control-label">
+          Dollar amount
+        </label>
+
+        <input type="text" id="dollar_amount" name="dollar_amount" placeholder="Dollar amount" class="form-control" value="<%= @invoice.dollar_amount %>">
+      </div>
+
+      <!-- Label and input for submitted -->
+      <div class="checkbox">
+        <label for="submitted">
+          <input type="checkbox" id="submitted" name="submitted" value="1" <%= "checked" if @invoice.submitted %>>
+          Submitted
+        </label>
+      </div>
+
+      <!-- Label and input for submitted_on -->
+      <div class="form-group">
+        <label for="submitted_on" class="control-label">
+          Submitted on
+        </label>
+
+        <input type="text" id="submitted_on" name="submitted_on" placeholder="Submitted on" class="form-control" value="<%= @invoice.submitted_on %>">
+      </div>
+
+      <!-- Label and input for approved -->
+      <div class="checkbox">
+        <label for="approved">
+          <input type="checkbox" id="approved" name="approved" value="1" <%= "checked" if @invoice.approved %>>
+          Approved
+        </label>
+      </div>
+
+      <!-- Label and input for requestor_notes -->
+      <div class="form-group">
+        <label for="requestor_notes" class="control-label">
+          Requestor notes
+        </label>
+
+        <textarea id="requestor_notes" name="requestor_notes" placeholder="Requestor notes" class="form-control" rows="3"><%= @invoice.requestor_notes %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Invoice
+      </button>
+      or
+      <a href="/invoices/<%= @invoice.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
