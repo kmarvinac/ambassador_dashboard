@@ -1,4 +1,14 @@
 class InvoicesController < ApplicationController
+  before_action :current_user_must_be_invoice_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_invoice_user
+    invoice = Invoice.find(params[:id])
+
+    unless current_user == invoice.ambassador
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @invoices = Invoice.all
 

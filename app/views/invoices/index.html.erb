@@ -30,8 +30,11 @@
         <td><%= invoice.requestor_notes %></td>
         <td>
           <a href="/invoices/<%= invoice.id %>" class="btn btn-primary">Show</a>
-          <a href="/invoices/<%= invoice.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_invoice/<%= invoice.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == invoice.ambassador %>
+            <a href="/invoices/<%= invoice.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_invoice/<%= invoice.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
