@@ -1,5 +1,7 @@
 ActiveAdmin.register Invoice do
 
+ permit_params :requestor_user_id, :approver_user_id, :dollar_amount, :submitted, :submitted_on, :approved, :requestor_notes
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
