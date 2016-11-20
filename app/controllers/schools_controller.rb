@@ -24,6 +24,8 @@ class SchoolsController < ApplicationController
     @school = School.new
 
     @school.school_name = params[:school_name]
+    @school.total_enrollment = params[:total_enrollment]
+    @school.state = params[:state]
 
     save_status = @school.save
 
@@ -51,6 +53,8 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
 
     @school.school_name = params[:school_name]
+    @school.total_enrollment = params[:total_enrollment]
+    @school.state = params[:state]
 
     save_status = @school.save
 
