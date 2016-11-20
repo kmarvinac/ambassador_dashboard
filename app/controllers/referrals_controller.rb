@@ -1,6 +1,7 @@
 class ReferralsController < ApplicationController
   def index
-    @referrals = Referral.page(params[:page]).per(10)
+    @q = Referral.ransack(params[:q])
+    @referrals = @q.result(:distinct => true).includes(:referrer, :school).page(params[:page]).per(10)
 
     render("referrals/index.html.erb")
   end

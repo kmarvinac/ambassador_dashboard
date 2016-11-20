@@ -10,7 +10,8 @@ class InvoicesController < ApplicationController
   end
 
   def index
-    @invoices = current_user.invoices.page(params[:page]).per(10)
+    @q = current_user.invoices.ransack(params[:q])
+      @invoices = @q.result(:distinct => true).includes(:ambassador).page(params[:page]).per(10)
 
     render("invoices/index.html.erb")
   end
