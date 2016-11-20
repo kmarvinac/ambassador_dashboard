@@ -24,7 +24,7 @@
           Referrer
         </label>
 
-        <input type="text" id="referrer_id" name="referrer_id" placeholder="Referrer" class="form-control" value="<%= @referral.referrer_id %>">
+        <%= select_tag(:referrer_id, options_from_collection_for_select(User.all, :id, :created_at, @referral.referrer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for school_id -->
