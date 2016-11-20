@@ -1,6 +1,6 @@
 class ReferralsController < ApplicationController
   def index
-    @referrals = Referral.all
+    @referrals = Referral.page(params[:page]).per(10)
 
     render("referrals/index.html.erb")
   end
