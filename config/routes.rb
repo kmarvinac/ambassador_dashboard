@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "schools#index"
   # Routes for the Invoice resource:
   # CREATE
   get "/invoices/new", :controller => "invoices", :action => "new"
