@@ -16,7 +16,7 @@
 
       <% @referrals.each do |referral| %>
       <tr>
-        <td><%= referral.referrer_id %></td>
+        <td><%= referral.referrer.created_at %></td>
         <td><%= referral.school_id %></td>
         <td>
           <a href="/referrals/<%= referral.id %>" class="btn btn-primary">Show</a>
