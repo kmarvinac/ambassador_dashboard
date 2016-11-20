@@ -24,7 +24,7 @@
           Requestor user
         </label>
 
-        <input type="text" id="requestor_user_id" name="requestor_user_id" placeholder="Requestor user" class="form-control" value="<%= @invoice.requestor_user_id %>">
+        <%= select_tag(:requestor_user_id, options_from_collection_for_select(User.all, :id, :created_at, @invoice.requestor_user_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for approver_user_id -->
