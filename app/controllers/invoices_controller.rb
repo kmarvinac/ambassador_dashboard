@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :current_user_must_be_invoice_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_invoice_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_invoice_user
     invoice = Invoice.find(params[:id])
