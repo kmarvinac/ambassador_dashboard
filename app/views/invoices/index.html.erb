@@ -21,7 +21,7 @@
 
       <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.requestor_user_id %></td>
+        <td><%= invoice.ambassador.created_at %></td>
         <td><%= invoice.approver_user_id %></td>
         <td><%= invoice.dollar_amount %></td>
         <td><%= invoice.submitted %></td>
