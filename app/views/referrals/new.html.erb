@@ -33,7 +33,7 @@
           School
         </label>
 
-        <input type="text" id="school_id" name="school_id" placeholder="School" class="form-control" value="<%= @referral.school_id %>">
+        <%= select_tag(:school_id, options_from_collection_for_select(School.all, :id, :school_name, @referral.school_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
