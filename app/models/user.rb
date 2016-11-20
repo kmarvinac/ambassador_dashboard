@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :school
+
   has_many   :referrals,
              :foreign_key => "referrer_id"
 
