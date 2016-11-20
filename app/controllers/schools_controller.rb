@@ -6,6 +6,8 @@ class SchoolsController < ApplicationController
   end
 
   def show
+    @referral = Referral.new
+    @user = User.new
     @school = School.find(params[:id])
 
     render("schools/show.html.erb")
