@@ -27,6 +27,24 @@
         <input type="text" id="school_name" name="school_name" placeholder="School name" class="form-control" value="<%= @school.school_name %>">
       </div>
 
+      <!-- Label and input for total_enrollment -->
+      <div class="form-group">
+        <label for="total_enrollment" class="control-label">
+          Total enrollment
+        </label>
+
+        <input type="text" id="total_enrollment" name="total_enrollment" placeholder="Total enrollment" class="form-control" value="<%= @school.total_enrollment %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @school.state %>">
+      </div>
+
       <button class="btn btn-success">
         Create School
       </button>
