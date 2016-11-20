@@ -12,7 +12,13 @@
       <dd><%= @user.password %></dd>
 
       <dt>School</dt>
-      <dd><%= @user.school_id %></dd>
+      <dd>
+        <% if @user.school.present? %>
+          <a href="/schools/<%= @user.school_id %>">
+            <%= @user.school.school_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>First name</dt>
       <dd><%= @user.first_name %></dd>

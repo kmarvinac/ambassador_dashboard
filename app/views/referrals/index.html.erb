@@ -16,8 +16,20 @@
 
       <% @referrals.each do |referral| %>
       <tr>
-        <td><%= referral.referrer.created_at %></td>
-        <td><%= referral.school.school_name %></td>
+        <td>
+          <% if referral.referrer.present? %>
+            <a href="/users/<%= referral.referrer.id %>">
+              <%= referral.referrer.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if referral.school.present? %>
+            <a href="/schools/<%= referral.school.id %>">
+              <%= referral.school.school_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/referrals/<%= referral.id %>" class="btn btn-primary">Show</a>
           <a href="/referrals/<%= referral.id %>/edit" class="btn btn-warning">Edit</a>

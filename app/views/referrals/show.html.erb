@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Referrer</dt>
-      <dd><%= @referral.referrer_id %></dd>
+      <dd>
+        <% if @referral.referrer.present? %>
+          <a href="/users/<%= @referral.referrer_id %>">
+            <%= @referral.referrer.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>School</dt>
-      <dd><%= @referral.school_id %></dd>
+      <dd>
+        <% if @referral.school.present? %>
+          <a href="/schools/<%= @referral.school_id %>">
+            <%= @referral.school.school_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
