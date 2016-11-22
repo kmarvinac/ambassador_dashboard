@@ -9,6 +9,11 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def date
+    require 'date'
+    @date = date.today
+  end
+
   def index
     @q = current_user.invoices.ransack(params[:q])
       @invoices = @q.result(:distinct => true).includes(:ambassador).page(params[:page]).per(10)
