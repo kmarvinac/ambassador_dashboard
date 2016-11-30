@@ -18,17 +18,6 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      
-      
-
-      <!-- Label and input for approver_user_id -->
-      <div class="form-group">
-        <label for="approver_user_id" class="control-label">
-          Approver user
-        </label>
-
-        <input type="text" id="approver_user_id" name="approver_user_id" placeholder="Approver user" class="form-control" value="<%= @invoice.approver_user_id %>">
-      </div>
 
       <!-- Label and input for dollar_amount -->
       <div class="form-group">
@@ -37,31 +26,6 @@
         </label>
 
         <input type="text" id="dollar_amount" name="dollar_amount" placeholder="Dollar amount" class="form-control" value="<%= @invoice.dollar_amount %>">
-      </div>
-
-      <!-- Label and input for submitted -->
-      <div class="checkbox">
-        <label for="submitted">
-          <input type="checkbox" id="submitted" name="submitted" value="1" <%= "checked" if @invoice.submitted %>>
-          Submitted
-        </label>
-      </div>
-
-      <!-- Label and input for submitted_on -->
-      <div class="form-group">
-        <label for="submitted_on" class="control-label">
-          Submitted on
-        </label>
-
-        <input type="text" id="submitted_on" name="submitted_on" placeholder="Submitted on" class="form-control" value="<%= @invoice.submitted_on %>">
-      </div>
-
-      <!-- Label and input for approved -->
-      <div class="checkbox">
-        <label for="approved">
-          <input type="checkbox" id="approved" name="approved" value="1" <%= "checked" if @invoice.approved %>>
-          Approved
-        </label>
       </div>
 
       <!-- Label and input for requestor_notes -->
