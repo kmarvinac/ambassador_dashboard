@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require moment
 //= require bootstrap-datetimepicker
+//= require highcharts
+// = require chartkick
 //= require_tree .
