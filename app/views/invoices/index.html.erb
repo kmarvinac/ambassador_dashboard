@@ -9,10 +9,9 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Requestor user</th>
-        <th>Approver user</th>
         <th>Dollar amount</th>
         <th>Submitted on</th>
-        <th>Approved</th>
+        <th>Approved?</th>
         <th>Requestor notes</th>
         <th>Actions</th>
       </tr>
@@ -26,7 +25,6 @@
             </a>
           <% end %>
         </td>
-        <td><%= invoice.approver_user_id %></td>
         <td><%= invoice.dollar_amount %></td>
         <td><%= invoice.created_at.to_date %></td>
         <td><%= invoice.approved %></td>
