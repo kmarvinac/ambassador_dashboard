@@ -8,7 +8,7 @@ class ReferralsController < ApplicationController
 
 
   def show_all
-
+    @referrals = Referral.all
   end
 
 
