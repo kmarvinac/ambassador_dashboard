@@ -1,5 +1,30 @@
 <div class="page-header">
   <h1>
     My Dashboard
+    <a href="/show_all" class="btn btn-lg btn-success">View Referral Details</a>
+
   </h1>
 </div>
+
+<!-- logged in user can see their referrals by day or week -->
+<h1>
+  My referrals by day
+</h1>
+
+<%= line_chart Referral.group("date(referrals.created_at)").count %>
+
+<!-- logged in user can see their referrals by school -->
+
+<h1>
+  My referrals by school
+</h1>
+
+<%= pie_chart Referral.group(:school_id).count %>
+
+
+<!-- add table, chart or large button that shows user their # of referrals at the school vs. total undergrad population and % -->
+<h1>
+  My progress at University of Michigan
+</h1>
+
+<%= current_user.referrals.count.to_i/26000 %>%

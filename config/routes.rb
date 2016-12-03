@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get "/referrals", :controller => "referrals", :action => "index"
   get "/referrals/:id", :controller => "referrals", :action => "show"
 
+  # SHOW ALL
+  get "/show_all", :controller => "referrals", :action => "show_all"
+
+
   #------------------------------
 
   # Routes for the School resource:
