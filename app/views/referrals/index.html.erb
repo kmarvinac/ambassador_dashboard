@@ -1,30 +1,55 @@
-<div class="page-header">
-  <h1>
-    My Dashboard
-    <a href="/show_all" class="btn btn-lg btn-success">View Referral Details</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
 
-  </h1>
+    <div class="page-header">
+      <h1>
+        My Dashboard
+        <a href="/show_all" class="btn btn-lg btn-success">View Referral Details</a>
+
+      </h1>
+    </div>]
+  </div>
 </div>
 
-<!-- logged in user can see their referrals by day or week -->
-<h1>
-  My referrals by day
-</h1>
 
-<%= line_chart Referral.group("date(referrals.created_at)").count %>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+      <!-- logged in user can see their referrals by day or week -->
+      <h1>
+        My referrals by day
+      </h1>
+      <%= line_chart Referral.group("date(referrals.created_at)").count %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-5">
+      <!-- logged in user can see their referrals by school -->
 
-<!-- logged in user can see their referrals by school -->
+      <h1>
+        My referrals by school
+      </h1>
 
-<h1>
-  My referrals by school
-</h1>
+      <%= pie_chart Referral.group(:school_id).count %>
+    </div>
+    <div class="col-sm-5">
+      <h1>
+        Converted referrals
+      </h1>
 
-<%= pie_chart Referral.group(:school_id).count %>
+      <%= pie_chart Referral.group(:accepted_at).count %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
 
+      <!-- add table, chart or large button that shows user their # of referrals at the school vs. total undergrad population and % -->
+      <h1>
+        My progress at University of Michigan
+      </h1>
 
-<!-- add table, chart or large button that shows user their # of referrals at the school vs. total undergrad population and % -->
-<h1>
-  My progress at University of Michigan
-</h1>
+      <%= current_user.referrals.count.to_i/26000 %>%
 
-<%= current_user.referrals.count.to_i/26000 %>%
+    </div>
+  </div>
+</div>
