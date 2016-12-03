@@ -10,4 +10,9 @@ class Invoice < ApplicationRecord
 
   # Validations
 
+  validates :dollar_amount, presence: true
+  validates :dollar_amount, numericality: true
+
+  validates :requestor_notes, presence: true
+
 end
