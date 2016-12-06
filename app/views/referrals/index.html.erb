@@ -8,47 +8,48 @@
         <a href="/show_all" class="btn btn-lg btn-success">View Referral Details</a>
 
       </h1>
-    </div>]
+    </div>
   </div>
 </div>
-
 
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10">
       <!-- logged in user can see their referrals by day or week -->
-      <h1>
+      <h2>
         My referrals by day
-      </h1>
-      <%= line_chart Referral.group("date(referrals.created_at)").count %>
+      </h2>
+
+      <!-- <%= line_chart Referral.where(referrer_id:"2").group("date(referrals.created_at)").count %> -->
+      <%= line_chart @referrals.group("date(referrals.created_at)").count %>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-offset-1 col-sm-5">
       <!-- logged in user can see their referrals by school -->
 
-      <h1>
+      <h2>
         My referrals by school
-      </h1>
+      </h2>
 
-      <%= pie_chart Referral.group(:school_id).count %>
+      <%= pie_chart @referrals.group(:school_id).count %>
     </div>
     <div class="col-sm-5">
-      <h1>
+      <h2>
         Converted referrals
-      </h1>
+      </h2>
 
-      <%= pie_chart Referral.group(:accepted_at).count %>
+      <%= pie_chart @referrals.group(:accepted_at).count %>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10">
 
       <!-- add table, chart or large button that shows user their # of referrals at the school vs. total undergrad population and % -->
-      <h1>
+      <h2>
         My progress at University of Michigan
-      </h1>
+      </h2>
 
-      <%= current_user.referrals.count.to_i/26000 %>%
+      <%= @referrals.count.to_f / 100.to_f %>%
 
     </div>
   </div>

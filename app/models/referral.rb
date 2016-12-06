@@ -11,6 +11,6 @@ class Referral < ApplicationRecord
   # Indirect associations
 
   # Validations
-  
+
 
 end

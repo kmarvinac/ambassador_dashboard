@@ -1,14 +1,15 @@
 class ReferralsController < ApplicationController
-  def index
-    @q = Referral.ransack(params[:q])
-    @referrals = @q.result(:distinct => true).includes(:referrer, :school).page(params[:page]).per(10)
-    render("referrals/index.html.erb")
+  # before_action :current_user_must_be_referral_user, :only => [:index, :show_all]
 
+
+  def index
+    conversions = Referral.where.not(accepted_at: nil)
+    @referrals = conversions.where(referrer_id: current_user.id)
   end
 
 
   def show_all
-    @referrals = Referral.all
+    @referrals = Referral.where(referrer_id: current_user.id)
   end
 
 
