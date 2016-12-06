@@ -6,7 +6,7 @@
 <h2>
   All Invoices by Amount
 </h2>
-  <%= bar_chart Invoice.group(:created_at).sum(:dollar_amount) %>
+  <%= bar_chart @invoices.group(:created_at).sum(:dollar_amount) %>
 
 <div class="row">
   <div class="col-md-12">
