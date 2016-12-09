@@ -2,8 +2,11 @@
 
 <div class="page-header">
   <h1>
-    All Referrals Detail
+    My Referrals - Details
   </h1>
+  <p><em><small>
+    If no email address is present, the user was not invited through the TransparentCareer portal, but signed up by clicking on your unique referral link
+  </small></em></p>
 </div>
 
 <div class="row">
@@ -16,8 +19,8 @@
 
       <% @referrals.each do |referral| %>
       <tr>
-        <td><%= referral.invited_user_email %></td>
-        <td><%= referral.accepted_at %></td>
+        <td><a href = "mailto:<%= referral.invited_user_email %>"><%= referral.invited_user_email %></a></td>
+        <td><%= referral.accepted_at.year.to_s+"-"+referral.accepted_at.month.to_s+"-"+referral.accepted_at.day.to_s %></td>
       </tr>
       <% end %>
 

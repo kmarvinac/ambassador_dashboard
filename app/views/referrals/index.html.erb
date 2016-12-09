@@ -20,25 +20,18 @@
       </h2>
 
       <!-- <%= line_chart Referral.where(referrer_id:"2").group("date(referrals.created_at)").count %> -->
-      <%= line_chart @referrals.group("date(referrals.created_at)").count %>
+      <%= line_chart @referrals.group("date(referrals.created_at)").count, xtitle: "Day", ytitle: "New Users Referred" %>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-5">
+    <div class="col-sm-offset-1 col-sm-10">
       <!-- logged in user can see their referrals by school -->
 
       <h2>
         My referrals by school
       </h2>
 
-      <%= pie_chart @referrals.group(:school_id).count %>
-    </div>
-    <div class="col-sm-5">
-      <h2>
-        Converted referrals
-      </h2>
-
-      <%= pie_chart @referrals.group(:accepted_at).count %>
+      <%= pie_chart @school_count_hash %>
     </div>
   </div>
   <div class="row">
