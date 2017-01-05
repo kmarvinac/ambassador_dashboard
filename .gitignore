@@ -14,5 +14,10 @@
 /vendor/*
 !/vendor/assets/
 .env
+
 config/database.yml
-config/application.yml
+
+# Ignore application configuration
+/config/application.yml
+
+todo.rb
