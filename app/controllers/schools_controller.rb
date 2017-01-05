@@ -3,6 +3,19 @@ class SchoolsController < ApplicationController
     @q = School.ransack(params[:q])
     @schools = @q.result(:distinct => true).includes(:users, :referrals).page(params[:page]).per(10)
 
+    @referrals = Referral.all
+    count_hash = @referrals.group(:school_id).count
+
+    @school_count_hash = {}
+    count_hash.each do |school_id, count|
+
+      school = School.where(id: school_id).first
+      next if school.nil?
+
+      school_name = school.school_name
+      @school_count_hash[school_name] = count
+    end
+
     render("schools/index.html.erb")
   end
 

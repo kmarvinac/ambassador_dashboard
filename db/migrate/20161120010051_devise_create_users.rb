@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.integer :school_id
       t.string :first_name
       t.string :last_name
-      t.integer :cell_phone_number
+      t.string :cell_phone_number
 
       t.timestamps null: false
     end

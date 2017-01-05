@@ -9,5 +9,7 @@ class School < ApplicationRecord
   # Indirect associations
 
   # Validations
+  validates :school_name, presence: true
+  validates :school_name, uniqueness: true
 
 end

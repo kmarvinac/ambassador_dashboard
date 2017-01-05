@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => "schools#index"
+  root :to => "referrals#index"
   # Routes for the Invoice resource:
   # CREATE
   get "/invoices/new", :controller => "invoices", :action => "new"
@@ -20,20 +20,15 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Referral resource:
-  # CREATE
-  get "/referrals/new", :controller => "referrals", :action => "new"
-  post "/create_referral", :controller => "referrals", :action => "create"
 
   # READ
   get "/referrals", :controller => "referrals", :action => "index"
   get "/referrals/:id", :controller => "referrals", :action => "show"
 
-  # UPDATE
-  get "/referrals/:id/edit", :controller => "referrals", :action => "edit"
-  post "/update_referral/:id", :controller => "referrals", :action => "update"
+  # SHOW ALL
+  get "/show_all", :controller => "referrals", :action => "show_all"
 
-  # DELETE
-  get "/delete_referral/:id", :controller => "referrals", :action => "destroy"
+
   #------------------------------
 
   # Routes for the School resource:

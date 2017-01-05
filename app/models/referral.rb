@@ -8,8 +8,10 @@ class Referral < ApplicationRecord
              :class_name => "User",
              :counter_cache => true
 
+
   # Indirect associations
 
   # Validations
+
 
 end
