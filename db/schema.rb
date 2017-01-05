@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170105183201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+=======
+ActiveRecord::Schema.define(version: 20161130030142) do
+>>>>>>> origin/master
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -24,9 +28,15 @@ ActiveRecord::Schema.define(version: 20170105183201) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+=======
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+>>>>>>> origin/master
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -42,8 +52,13 @@ ActiveRecord::Schema.define(version: 20170105183201) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+<<<<<<< HEAD
     t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+=======
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+>>>>>>> origin/master
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -63,6 +78,12 @@ ActiveRecord::Schema.define(version: 20170105183201) do
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
+=======
+    t.string   "invited_user_email"
+    t.string   "record_type"
+    t.datetime "accepted_at"
+>>>>>>> origin/master
   end
 
   create_table "schools", force: :cascade do |t|
@@ -87,13 +108,22 @@ ActiveRecord::Schema.define(version: 20170105183201) do
     t.integer  "school_id"
     t.string   "first_name"
     t.string   "last_name"
+<<<<<<< HEAD
     t.string   "cell_phone_number"
+=======
+    t.integer  "cell_phone_number"
+>>>>>>> origin/master
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "invoices_count"
     t.integer  "referrals_count"
+<<<<<<< HEAD
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+=======
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+>>>>>>> origin/master
   end
 
 end

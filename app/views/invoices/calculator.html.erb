@@ -1,0 +1,32 @@
+<!-- Code for Referral amount calculator so they don't have to do it manually -->
+
+
+<div class = "row">
+  <div class="col-md-12">
+    <h4> Referral Amount Calculator</h4>
+  </div>
+</div>
+
+<div class = "row">
+  <div class="col-md-12">
+    <form action="/invoices/new" method="post">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <input name="number of users" type="text" id="number_users">
+      <div class="form-group">
+        <label for="referral_number" class="control-label">
+          Number of new users referred
+        </label>
+      </div>
+      <button class="btn btn-success">
+        Calculate
+      </button>
+    </form>
+  </div>
+</div>
+
+
+<div class = "row">
+  <div class="col-md-12">
+    <p> Your invoice amount for <%= @number_users %> should be <%= @invoice_amount_calc %> </p>
+    </div>
+  </div>

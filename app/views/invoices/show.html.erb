@@ -9,7 +9,7 @@
       <dd>
         <% if @invoice.ambassador.present? %>
           <a href="/users/<%= @invoice.requestor_user_id %>">
-            <%= @invoice.ambassador.created_at %>
+            <%= current_user.email %>
           </a>
         <% end %>
       </dd>
@@ -20,11 +20,8 @@
       <dt>Dollar amount</dt>
       <dd><%= @invoice.dollar_amount %></dd>
 
-      <dt>Submitted</dt>
-      <dd><%= @invoice.submitted %></dd>
-
       <dt>Submitted on</dt>
-      <dd><%= @invoice.submitted_on %></dd>
+      <dd><%= @invoice.created_at.to_date %></dd>
 
       <dt>Approved</dt>
       <dd><%= @invoice.approved %></dd>

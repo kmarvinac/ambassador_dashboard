@@ -9,6 +9,11 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def date
+    require 'date'
+    @date = date.today
+  end
+
   def index
     @q = current_user.invoices.ransack(params[:q])
       @invoices = @q.result(:distinct => true).includes(:ambassador).page(params[:page]).per(10)
@@ -64,12 +69,12 @@ class InvoicesController < ApplicationController
   def update
     @invoice = Invoice.find(params[:id])
 
-    @invoice.requestor_user_id = params[:requestor_user_id]
-    @invoice.approver_user_id = params[:approver_user_id]
+    # @invoice.requestor_user_id = params[:requestor_user_id]
+    # @invoice.approver_user_id = params[:approver_user_id]
     @invoice.dollar_amount = params[:dollar_amount]
-    @invoice.submitted = params[:submitted]
-    @invoice.submitted_on = params[:submitted_on]
-    @invoice.approved = params[:approved]
+    # @invoice.submitted = params[:submitted]
+    # @invoice.submitted_on = params[:submitted_on]
+    # @invoice.approved = params[:approved]
     @invoice.requestor_notes = params[:requestor_notes]
 
     save_status = @invoice.save
