@@ -3,25 +3,27 @@ class ReferralsController < ApplicationController
 
 
   def index
-    conversions = Referral.includes(:school).where.not(accepted_at: nil)
-    @referrals = conversions.where(referrer_id: current_user.id)
-    count_hash = @referrals.group(:school_id).count
+    @referrals = TransparentCareer.new.user_referrals(current_user.tc_id)
 
+    date_hash = @referrals.group_by{|r| r.accepted_at.to_datetime.strftime("%m/%d/%Y")}
+    @referral_by_day_hash = {}
+    date_hash.each do |date, referrals|
+      @referral_by_day_hash[date] = referrals.size
+    end
+
+
+    name_hash = @referrals.group_by{|r| r.current_school ? r.current_school[:name] : "N/A"}
     @school_count_hash = {}
-    count_hash.each do |school_id, count|
-
-      school = School.where(id: school_id).first
-      next if school.nil?
-
-      school_name = school.school_name
-      @school_count_hash[school_name] = count
+    name_hash.each do |school_name, referrals|
+      @school_count_hash[school_name] = referrals.size
     end
   end
 
 
   def show_all
-    conversions = Referral.where.not(accepted_at: nil)
-    @referrals = conversions.where(referrer_id: current_user.id)
+    referrals = TransparentCareer.new.user_referrals(current_user.tc_id)
+
+    @referrals = referrals.select{|r| r.accepted == true}
   end
 
 

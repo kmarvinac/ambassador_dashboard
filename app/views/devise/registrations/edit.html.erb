@@ -55,9 +55,16 @@
           </div>
 
           <div class="form-group">
+            <%= f.label :tc_id, "Transparent Career ID", class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.number_field :tc_id, :class => "form-control", :placeholder => "Enter your TransparentCareer User Id" %>
+            </div>
+          </div>
+
+          <div class="form-group">
             <%= f.label :school_id, class: "col-sm-2 control-label" %>
             <div class="col-sm-10">
-              <%= f.select(:school_id, options_from_collection_for_select(School.all, :id, :school_name, @user.school_id), {}, {:class => "form-control"}) %>
+              <%= f.select(:school_id, options_from_collection_for_select(School.ambassador_schools, :id, :school_name, @user.school_id), {include_blank: "Choose Your School"}, {:class => "form-control"}) %>
             </div>
           </div>
 
@@ -95,18 +102,6 @@
           </div>
         <% end %>
 
-      </div>
-
-      <div class="panel-footer">
-        <div class="row">
-          <div class="col-sm-2">
-            Unhappy?
-          </div>
-
-          <div class="col-sm-10">
-            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-block" %>
-          </div>
-        </div>
       </div>
 
     </div>

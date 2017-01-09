@@ -12,8 +12,8 @@ class User < ApplicationRecord
   # Indirect associations
 
   # Validations
-  validates :school_name, presence: true, uniqueness: { scope: :email }
-  validates :cell_phone_number, presence: true, numericality: { only_integer: true }
+  validates :school, presence: true
+  validates :cell_phone_number, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

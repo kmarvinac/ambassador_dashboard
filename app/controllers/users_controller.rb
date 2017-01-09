@@ -1,18 +1,14 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page]).per(20)
-    @referrals = Referral.all
-
-    count_hash = @referrals.group(:referrer_id).count
+    user_ids = User.all.map(&:tc_id) - [current_user.tc_id]
+    @referrals = TransparentCareer.new.all_referrals(user_ids)
 
     @user_count_hash = {}
-    count_hash.each do |referrer_id, count|
-
-      user = User.where(id: referrer_id).first
+    @referrals.each do |referral|
+      user = User.find_by(tc_id: referral.id)
       next if user.nil?
 
-      user_name = user.first_name
-      @user_count_hash[user_name] = count
+      @user_count_hash[user.email] = referral.referrals.size
     end
   end
 

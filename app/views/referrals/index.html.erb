@@ -19,8 +19,7 @@
         My referrals by day
       </h2>
 
-      <!-- <%= line_chart Referral.where(referrer_id:"2").group("date(referrals.created_at)").count %> -->
-      <%= line_chart @referrals.group("date(referrals.created_at)").count, xtitle: "Day", ytitle: "New Users Referred" %>
+      <%= line_chart @referral_by_day_hash, xtitle: "Day", ytitle: "New Users Referred" %>
     </div>
   </div>
   <div class="row">

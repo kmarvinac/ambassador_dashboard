@@ -16,8 +16,6 @@ class SchoolsController < ApplicationController
       @school_count_hash[school_name] = count
     end
 
-    @api_schools = TransparentCareer.new.schools
-
     render("schools/index.html.erb")
   end
 
