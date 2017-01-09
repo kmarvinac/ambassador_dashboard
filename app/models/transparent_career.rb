@@ -12,7 +12,7 @@ class TransparentCareer
       object_array = JSON.parse response.body, symbolize_names: true
       object_array.map{|o| OpenStruct.new(o)}
     else
-      raise response.response
+      return nil
     end
   end
 
@@ -23,7 +23,7 @@ class TransparentCareer
       object_array = JSON.parse response.body, symbolize_names: true
       return object_array.map{|o| OpenStruct.new(o)}
     else
-      raise response.response
+      return nil
     end
   end
 
@@ -34,7 +34,7 @@ class TransparentCareer
       return_object = JSON.parse response.body, symbolize_names: true
       return return_object.map{|o| OpenStruct.new(o)}
     else
-      raise response.response
+      return nil
     end
   end
 
