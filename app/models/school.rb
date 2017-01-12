@@ -19,6 +19,7 @@ class School < ApplicationRecord
                           "Indiana University—Bloomington",
                           "Pennsylvania State University—University Park",
                           "University of California—Berkeley",
+                          "University of California—Davis",
                           "University of California—Los Angeles (UCLA)",
                           "University of Florida",
                           "University of Illinois—Urbana-Champaign",
