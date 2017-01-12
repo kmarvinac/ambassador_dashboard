@@ -22,7 +22,7 @@ class School < ApplicationRecord
                           "University of California-Davis",
                           "University of California-Los Angeles (UCLA)",
                           "University of Florida",
-                          "University of Illinois—Urbana-Champaign",
+                          "University of Illinois-Urbana-Champaign",
                           "University of Michigan-Ann Arbor",
                           "University of North Carolina-Chapel Hill",
                           "University of Virginia"
