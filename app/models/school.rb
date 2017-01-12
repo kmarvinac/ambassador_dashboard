@@ -14,17 +14,17 @@ class School < ApplicationRecord
 
   def self.ambassador_schools
     ambassador_schools = [
-                          "Brigham Young University—Provo",
+                          "Brigham Young University-Provo",
                           "DePaul University",
-                          "Indiana University—Bloomington",
-                          "Pennsylvania State University—University Park",
-                          "University of California—Berkeley",
-                          "University of California—Davis",
-                          "University of California—Los Angeles (UCLA)",
+                          "Indiana University-Bloomington",
+                          "Pennsylvania State University-University Park",
+                          "University of California-Berkeley",
+                          "University of California-Davis",
+                          "University of California-Los Angeles (UCLA)",
                           "University of Florida",
                           "University of Illinois—Urbana-Champaign",
-                          "University of Michigan—Ann Arbor",
-                          "University of North Carolina—Chapel Hill",
+                          "University of Michigan-Ann Arbor",
+                          "University of North Carolina-Chapel Hill",
                           "University of Virginia"
                          ]
     where(school_name: ambassador_schools).order(:school_name)
