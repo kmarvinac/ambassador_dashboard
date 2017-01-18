@@ -3,11 +3,7 @@ class User < ApplicationRecord
 
   belongs_to :school
 
-  has_many   :referrals,
-             :foreign_key => "referrer_id"
-
-  has_many   :invoices,
-             :foreign_key => "requestor_user_id"
+  has_many   :invoices
 
   # Indirect associations
 
@@ -19,4 +15,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

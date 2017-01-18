@@ -1,9 +1,7 @@
 class Invoice < ApplicationRecord
   # Direct associations
 
-  belongs_to :ambassador,
-             :class_name => "User",
-             :foreign_key => "requestor_user_id",
+  belongs_to :user,
              :counter_cache => true
 
   # Indirect associations
@@ -15,4 +13,21 @@ class Invoice < ApplicationRecord
 
   validates :requestor_notes, presence: true
 
+  rails_admin do
+    list do
+      field :id
+      field :user
+      field :dollar_amount
+      field :requestor_notes
+      field :submitted_on
+      field :approved
+      field :approver_name
+    end
+
+    show do
+      field :user
+      field :dollar_amount
+      field :requestor_notes
+    end
+  end
 end

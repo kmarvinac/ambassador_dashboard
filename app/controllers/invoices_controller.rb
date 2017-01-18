@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
   def current_user_must_be_invoice_user
     invoice = Invoice.find(params[:id])
 
-    unless current_user == invoice.ambassador
+    unless current_user == invoice.user
       redirect_to :back, :alert => "You are not authorized for that."
     end
   end
@@ -16,7 +16,7 @@ class InvoicesController < ApplicationController
 
   def index
     @q = current_user.invoices.ransack(params[:q])
-      @invoices = @q.result(:distinct => true).includes(:ambassador).page(params[:page]).per(10)
+      @invoices = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("invoices/index.html.erb")
   end
@@ -36,7 +36,7 @@ class InvoicesController < ApplicationController
   def create
     @invoice = Invoice.new
 
-    @invoice.requestor_user_id = current_user.id
+    @invoice.user_id = current_user.id
     @invoice.dollar_amount = params[:dollar_amount]
     @invoice.submitted_on = Time.zone.now
     @invoice.requestor_notes = params[:requestor_notes]

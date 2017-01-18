@@ -23,9 +23,9 @@
       <% @invoices.each do |invoice| %>
       <tr>
         <td>
-          <% if invoice.ambassador.present? %>
-            <a href="/users/<%= invoice.ambassador.id %>">
-              <%= invoice.ambassador.email %>
+          <% if invoice.user.present? %>
+            <a href="/users/<%= invoice.user.id %>">
+              <%= invoice.user.email %>
             </a>
           <% end %>
         </td>
@@ -36,7 +36,7 @@
         <td>
           <a href="/invoices/<%= invoice.id %>" class="btn btn-primary">Show</a>
 
-          <% if current_user == invoice.ambassador %>
+          <% if current_user == invoice.user %>
             <a href="/invoices/<%= invoice.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_invoice/<%= invoice.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <% end %>

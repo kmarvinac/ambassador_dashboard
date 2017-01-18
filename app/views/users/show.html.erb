@@ -11,7 +11,7 @@
       <dt>School</dt>
       <dd>
         <% if @user.school.present? %>
-          <%= @user.school.school_name %>          
+          <%= @user.school.school_name %>
         <% end %>
       </dd>
 
@@ -52,7 +52,7 @@
             <a href="/invoices/<%= invoice.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == invoice.ambassador %>
+            <%if current_user == invoice.user %>
               <a href="/invoices/<%= invoice.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
