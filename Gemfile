@@ -63,3 +63,6 @@ gem "chartkick"
 gem 'groupdate'
 gem "httparty"
 gem "figaro"
+
+#Admin
+gem 'rails_admin', '~> 1.1.1'

@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Starting the server
 
-Things you may want to cover:
+The transparentcareer app needs to also be running in order for this app to run.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Go to transparentcareer app on your local machine and run `foreman s`. This will start
+  the transparentcareer app on `http://localhost:5000`
+* You need the two apps running on different ports so this is very important. To start the ambassador app, run `foreman s -p 3000`. This will start the ambassador app on port 3000.

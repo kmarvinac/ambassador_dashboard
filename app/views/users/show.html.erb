@@ -8,15 +8,10 @@
       <dt>Email</dt>
       <dd><%= @user.email %></dd>
 
-      <dt>Password</dt>
-      <dd><%= @user.password %></dd>
-
       <dt>School</dt>
       <dd>
         <% if @user.school.present? %>
-          <a href="/schools/<%= @user.school_id %>">
-            <%= @user.school.school_name %>
-          </a>
+          <%= @user.school.school_name %>          
         <% end %>
       </dd>
 
@@ -48,10 +43,10 @@
         Invoices
       </li>
 
-      <% @user.invoices.each do |invoice| %>
+      <% @user.invoices.order("id DESC").each do |invoice| %>
         <li class="list-group-item">
           <a href="/invoices/<%= invoice.id %>">
-            <%= invoice.requestor_user_id %>
+            Invoice #<%= invoice.id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/invoices/<%= invoice.id %>" class="btn btn-primary">
