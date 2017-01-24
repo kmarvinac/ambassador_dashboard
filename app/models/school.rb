@@ -17,6 +17,7 @@ class School < ApplicationRecord
                           "Brigham Young University-Provo",
                           "DePaul University",
                           "Indiana University-Bloomington",
+                          "Lehigh University",
                           "Pennsylvania State University-University Park",
                           "University of California-Berkeley",
                           "University of California-Davis",
