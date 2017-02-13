@@ -1,19 +1,17 @@
 class SchoolsController < ApplicationController
   def index
-    @q = School.ransack(params[:q])
-    @schools = @q.result(:distinct => true).includes(:users, :referrals).page(params[:page]).per(10)
 
-    @referrals = Referral.all
-    count_hash = @referrals.group(:school_id).count
+    school_ids = School.ambassador_schools.pluck(:tc_id)
+    class_year_start = "2016"
+    class_year_end = "2021"
+    @school_list_count = TransparentCareer.new.users_count_by_schools({school_ids: school_ids,
+                      class_year_start: class_year_start, class_year_end: class_year_end})
 
-    @school_count_hash = {}
-    count_hash.each do |school_id, count|
+    @school_count = []
+    @school_list_count.each do |school_count|
+      school = School.find_by(tc_id: school_count.school_id)
 
-      school = School.where(id: school_id).first
-      next if school.nil?
-
-      school_name = school.school_name
-      @school_count_hash[school_name] = count
+      @school_count << [school.school_name, school_count.count]
     end
 
     render("schools/index.html.erb")

@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170118172320) do
 
   create_table "schools", force: :cascade do |t|
     t.string   "school_name"
+    t.integer  "total_enrollment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "referrals_count"
@@ -96,6 +97,8 @@ ActiveRecord::Schema.define(version: 20170118172320) do
     t.datetime "updated_at",                          null: false
     t.integer  "invoices_count"
     t.integer  "referrals_count"
+    t.string   "invited_user_email"
+    t.string   "record_type"
     t.integer  "tc_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
