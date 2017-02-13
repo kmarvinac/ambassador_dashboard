@@ -5,7 +5,7 @@ class SchoolsController < ApplicationController
     class_year_start = "2016"
     class_year_end = "2021"
     @school_list_count = TransparentCareer.new.users_count_by_schools({school_ids: school_ids,
-                      class_year_start: class_year_start, class_year_end: class_year_end})
+                      class_year_start: class_year_start, class_year_end: class_year_end}).sort! { |a,b| b.count <=> a.count }
 
     @school_count = []
     @school_list_count.each do |school_count|
@@ -13,6 +13,7 @@ class SchoolsController < ApplicationController
 
       @school_count << [school.school_name, school_count.count]
     end
+
 
     render("schools/index.html.erb")
   end
